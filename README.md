@@ -1,3 +1,5 @@
+🌐 [English](README.md) | [Español](README.es.md) | [Français](README.fr.md) | [Italiano](README.it.md)
+
 # AI Rank
 
 A Claude Code skill for optimizing content so it gets cited by LLM answer engines (ChatGPT, Perplexity, Claude) and consumed by autonomous AI agents.

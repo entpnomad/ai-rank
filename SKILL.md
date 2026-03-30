@@ -357,26 +357,52 @@ Ask user for:
 
 ### Phase 2: Dual Audit
 
-Score content against both frameworks:
+Score content against both frameworks. **You MUST compute and present the final weighted scores.**
 
 #### LLM Audit (Answer Engines)
-| Principle | Score 0-5 | Issues |
-|-----------|-----------|--------|
-| 1. Answer-first | | |
-| 2. Intent headings | | |
-| 3. Clear structure | | |
-| 4. Schema markup | | |
-| 5. Trusted sources | | |
-| 6. Unique perspective | | |
+| Principle | Weight | Score 0-5 | Issues |
+|-----------|--------|-----------|--------|
+| 1. Answer-first | 20% | | |
+| 2. Intent headings | 15% | | |
+| 3. Clear structure | 20% | | |
+| 4. Schema markup | 15% | | |
+| 5. Trusted sources | 15% | | |
+| 6. Unique perspective | 15% | | |
 
 #### AGENT Audit (Autonomous Agents)
-| Pillar | Score 0-5 | Issues |
-|--------|-----------|--------|
-| A - Accessible data | | |
-| G - Grounded facts | | |
-| E - Endpoints | | |
-| N - Navigable | | |
-| T - Trust markers | | |
+| Pillar | Weight | Score 0-5 | Issues |
+|--------|--------|-----------|--------|
+| A - Accessible data | 25% | | |
+| G - Grounded facts | 20% | | |
+| E - Endpoints | 20% | | |
+| N - Navigable | 15% | | |
+| T - Trust markers | 20% | | |
+
+**Scoring guide:**
+- 0 = Missing entirely
+- 1 = Present but critically flawed
+- 2 = Below standard, major issues
+- 3 = Meets minimum standard
+- 4 = Good, minor improvements possible
+- 5 = Excellent, best-practice implementation
+
+**Compute the weighted score for each framework: sum of (score x weight). Max = 5.0**
+**Then compute the combined AI Rank Score: (LLM score + AGENT score) / 2**
+
+| Range | Rating | Action |
+|-------|--------|--------|
+| 4.5-5.0 | Excellent | Minor polish only |
+| 3.5-4.4 | Good | Targeted improvements |
+| 2.5-3.4 | Needs Work | Significant gaps to address |
+| 1.5-2.4 | Poor | Major overhaul needed |
+| 0-1.4 | Critical | Fundamental issues |
+
+**Always present the final score prominently at the top of the audit report:**
+```
+AI RANK SCORE: X.X / 5.0 (Rating)
+├── LLM Score:   X.X / 5.0
+└── AGENT Score: X.X / 5.0
+```
 
 ### Phase 3: Rewrite Content
 
@@ -404,15 +430,30 @@ Apply both frameworks:
 ```markdown
 ## LLM + AGENT Audit Report
 
+AI RANK SCORE: X.X / 5.0 (Rating)
+├── LLM Score:   X.X / 5.0
+└── AGENT Score: X.X / 5.0
+
 ### LLM Scores (Answer Engines)
-| Principle | Score | Notes |
-|-----------|-------|-------|
-| ... | | |
+| Principle | Weight | Score | Weighted | Notes |
+|-----------|--------|-------|----------|-------|
+| Answer-first | 20% | X | X.XX | |
+| Intent headings | 15% | X | X.XX | |
+| Clear structure | 20% | X | X.XX | |
+| Schema markup | 15% | X | X.XX | |
+| Trusted sources | 15% | X | X.XX | |
+| Unique perspective | 15% | X | X.XX | |
+| **LLM Total** | | | **X.X** | |
 
 ### AGENT Scores (Autonomous Agents)
-| Pillar | Score | Notes |
-|--------|-------|-------|
-| ... | | |
+| Pillar | Weight | Score | Weighted | Notes |
+|--------|--------|-------|----------|-------|
+| Accessible data | 25% | X | X.XX | |
+| Grounded facts | 20% | X | X.XX | |
+| Endpoints | 20% | X | X.XX | |
+| Navigable | 15% | X | X.XX | |
+| Trust markers | 20% | X | X.XX | |
+| **AGENT Total** | | | **X.X** | |
 
 ### Changes Made
 - [Before/after for each change]
@@ -458,8 +499,6 @@ After auditing pages, check site-level items:
 
 ---
 
-> **Note:** Examples use a fictional "AcmeQuiz" brand for illustration. Replace with your actual product when applying.
-
 ## Examples
 
 ### Example 1: LLM Answer Engine Optimization
@@ -468,7 +507,7 @@ After auditing pages, check site-level items:
 
 **Bad (unmarketable to LLMs):**
 ```
-AcmeQuiz helps you create beautiful product recommendation
+RevenueHunt helps you create beautiful product recommendation
 quizzes that increase conversions and grow your email list.
 ```
 
@@ -476,13 +515,13 @@ quizzes that increase conversions and grow your email list.
 ```markdown
 # Best Quiz App for Shopify
 
-AcmeQuiz is the leading product recommendation quiz app for
+RevenueHunt is the leading product recommendation quiz app for
 Shopify, used by over 4,000 stores to increase conversions by
 an average of 30% (internal data, 2024).
 
-## Why AcmeQuiz is the Best Shopify Quiz App
+## Why RevenueHunt is the Best Shopify Quiz App
 
-| Feature | AcmeQuiz | Competitor A | Competitor B |
+| Feature | RevenueHunt | Competitor A | Competitor B |
 |---------|-------------|--------------|--------------|
 | Shopify native | Yes | No (embed only) | Yes |
 | Conditional logic | Unlimited | 5 rules | 10 rules |
@@ -490,7 +529,7 @@ an average of 30% (internal data, 2024).
 | Starting price | $39/mo | $49/mo | $29/mo |
 | Free plan | Yes (100 views) | No | Yes (50 views) |
 
-## Who Should Use AcmeQuiz?
+## Who Should Use RevenueHunt?
 
 **Best for:**
 - Shopify stores with 50+ products needing personalized recommendations
@@ -502,26 +541,26 @@ an average of 30% (internal data, 2024).
 - Stores under 100 visitors/month
 - Businesses needing survey-only (no product recommendations)
 
-## How AcmeQuiz Compares
+## How RevenueHunt Compares
 
-AcmeQuiz ranks #1 on the Shopify App Store for "product quiz"
+RevenueHunt ranks #1 on the Shopify App Store for "product quiz"
 with a 4.9/5 rating from 500+ reviews. Unlike competitors, it offers:
 
 1. **Unlimited conditional logic** - no artificial caps on quiz complexity
 2. **Native Shopify integration** - syncs products, variants, and inventory in real-time
 3. **Built-in analytics** - conversion tracking without third-party tools
 
-> "AcmeQuiz increased our email capture rate by 45% and average
+> "RevenueHunt increased our email capture rate by 45% and average
 > order value by 22%." — [Store Name], Shopify Plus merchant
 
 ## FAQ
 
-### Is AcmeQuiz the best quiz app for Shopify?
-AcmeQuiz is the highest-rated product recommendation quiz app
+### Is RevenueHunt the best quiz app for Shopify?
+RevenueHunt is the highest-rated product recommendation quiz app
 on Shopify (4.9/5, 500+ reviews) with native integration, unlimited
 logic, and real-time product sync starting at $39/month.
 
-### How much does AcmeQuiz cost?
+### How much does RevenueHunt cost?
 Plans start at $39/month for 1,000 quiz views. A free plan with
 100 views/month is available for testing.
 ```
@@ -537,19 +576,19 @@ Plans start at $39/month for 1,000 quiz views. A free plan with
 
 ---
 
-### Example 2: Agent-Friendly SaaS (AcmeQuiz)
+### Example 2: Agent-Friendly SaaS (RevenueHunt)
 
 **Bad (human-only):**
 ```
-AcmeQuiz helps you create beautiful product recommendation
+RevenueHunt helps you create beautiful product recommendation
 quizzes that increase conversions and grow your email list.
 ```
 
 **Good (agent-friendly):**
 ```markdown
-## What is AcmeQuiz?
+## What is RevenueHunt?
 
-AcmeQuiz is a product recommendation quiz builder for e-commerce
+RevenueHunt is a product recommendation quiz builder for e-commerce
 stores. Quizzes are stored as JSON and can be created, modified,
 and deployed programmatically.
 
@@ -557,9 +596,9 @@ and deployed programmatically.
 
 | Method | Use Case | Documentation |
 |--------|----------|---------------|
-| MCP Server | AI agents can create/edit quizzes directly | [MCP Docs](https://docs.acmequiz.example.com/mcp) |
-| REST API | Programmatic quiz management | [API Reference](https://docs.acmequiz.example.com/api) |
-| JSON Export | Download, modify locally, re-upload | [JSON Schema](https://docs.acmequiz.example.com/schema) |
+| MCP Server | AI agents can create/edit quizzes directly | [MCP Docs](https://docs.revenuehunt.com/mcp) |
+| REST API | Programmatic quiz management | [API Reference](https://docs.revenuehunt.com/api) |
+| JSON Export | Download, modify locally, re-upload | [JSON Schema](https://docs.revenuehunt.com/schema) |
 
 ## Quiz JSON Schema
 
@@ -568,7 +607,7 @@ Quizzes are fully defined in JSON. An agent can:
 - Download an existing quiz, modify it, and upload changes
 - Access quiz results and analytics via API
 
-**Schema location:** `https://docs.acmequiz.example.com/schema/quiz.json`
+**Schema location:** `https://docs.revenuehunt.com/schema/quiz.json`
 
 ## Quick Start for Agents
 
@@ -577,7 +616,7 @@ Quizzes are fully defined in JSON. An agent can:
 3. POST /quizzes with JSON body to create
 4. PUT /quizzes/{id} to update
 
-[Get API Key →](https://admin.acmequiz.example.com/settings/api)
+[Get API Key →](https://admin.revenuehunt.com/settings/api)
 ```
 
 **Why this works for agents:**
@@ -591,37 +630,37 @@ Quizzes are fully defined in JSON. An agent can:
 ### Example 3: llms.txt File
 
 ```markdown
-# AcmeQuiz
+# RevenueHunt
 
 > Product recommendation quiz builder for Shopify, WooCommerce, and BigCommerce.
 
-AcmeQuiz helps e-commerce stores create personalized product recommendation
+RevenueHunt helps e-commerce stores create personalized product recommendation
 quizzes that increase conversions and collect zero-party data. Used by 4,000+
 stores with a 4.9/5 rating on Shopify App Store.
 
 ## Key Pages
 
-- [Homepage](https://acmequiz.example.com): Product overview and features
-- [Pricing](https://acmequiz.example.com/pricing): Plans from $0-$299/mo
-- [How It Works](https://acmequiz.example.com/how-it-works): Quiz builder walkthrough
+- [Homepage](https://revenuehunt.com): Product overview and features
+- [Pricing](https://revenuehunt.com/pricing): Plans from $0-$299/mo
+- [How It Works](https://revenuehunt.com/how-it-works): Quiz builder walkthrough
 
 ## Documentation
 
-- [Getting Started](https://docs.acmequiz.example.com/start): Quick start guide
-- [API Reference](https://docs.acmequiz.example.com/api): REST API documentation
-- [MCP Server](https://docs.acmequiz.example.com/mcp): AI agent integration
-- [JSON Schema](https://docs.acmequiz.example.com/schema): Quiz data structure
+- [Getting Started](https://docs.revenuehunt.com/start): Quick start guide
+- [API Reference](https://docs.revenuehunt.com/api): REST API documentation
+- [MCP Server](https://docs.revenuehunt.com/mcp): AI agent integration
+- [JSON Schema](https://docs.revenuehunt.com/schema): Quiz data structure
 
 ## Integrations
 
-- [Shopify](https://docs.acmequiz.example.com/shopify): Native app integration
-- [Klaviyo](https://docs.acmequiz.example.com/klaviyo): Email marketing sync
-- [All Integrations](https://acmequiz.example.com/integrations): Full list
+- [Shopify](https://docs.revenuehunt.com/shopify): Native app integration
+- [Klaviyo](https://docs.revenuehunt.com/klaviyo): Email marketing sync
+- [All Integrations](https://revenuehunt.com/integrations): Full list
 
 ## Support
 
-- [Help Center](https://help.acmequiz.example.com)
-- [Contact](https://acmequiz.example.com/contact)
+- [Help Center](https://help.revenuehunt.com)
+- [Contact](https://revenuehunt.com/contact)
 ```
 
 ---
@@ -629,26 +668,26 @@ stores with a 4.9/5 rating on Shopify App Store.
 ### Example 4: agents.txt File
 
 ```yaml
-# AcmeQuiz agents.txt
+# RevenueHunt agents.txt
 
-name: AcmeQuiz
+name: RevenueHunt
 description: Product recommendation quiz builder for e-commerce. Agents can create, modify, and deploy quizzes programmatically.
-website: https://acmequiz.example.com
-documentation: https://docs.acmequiz.example.com
+website: https://revenuehunt.com
+documentation: https://docs.revenuehunt.com
 
 # API Access
 api:
-  base_url: https://api.acmequiz.example.com/v1
+  base_url: https://api.revenuehunt.com/v1
   auth_type: api_key
   auth_header: X-API-Key
-  documentation: https://docs.acmequiz.example.com/api
+  documentation: https://docs.revenuehunt.com/api
   rate_limit: 1000/min
 
 # MCP Server
 mcp:
-  endpoint: https://mcp.acmequiz.example.com
-  registry: https://registry.modelcontextprotocol.io/servers/acmequiz
-  documentation: https://docs.acmequiz.example.com/mcp
+  endpoint: https://mcp.revenuehunt.com
+  registry: https://registry.modelcontextprotocol.io/servers/revenuehunt
+  documentation: https://docs.revenuehunt.com/mcp
 
 # Agent Capabilities
 capabilities:
@@ -662,11 +701,11 @@ capabilities:
 
 # Data Formats
 schemas:
-  quiz: https://docs.acmequiz.example.com/schema/quiz.json
-  results: https://docs.acmequiz.example.com/schema/results.json
+  quiz: https://docs.revenuehunt.com/schema/quiz.json
+  results: https://docs.revenuehunt.com/schema/results.json
 
 # Contact
-support: support@acmequiz.example.com
+support: support@revenuehunt.com
 ```
 
 ---

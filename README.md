@@ -6,6 +6,14 @@ Two audiences, two frameworks:
 - **LLM Framework** — Make your content quotable by answer engines
 - **AGENT Framework** — Make your product accessible to autonomous AI agents
 
+## Companion Skill
+
+Pairs with [seo-rank](https://github.com/entpnomad/seo-rank) for complete search visibility:
+- **ai-rank** handles LLM answer engines + autonomous AI agents
+- **seo-rank** handles Google/Bing traditional + technical SEO
+
+Use both together for full coverage across traditional and AI-powered search.
+
 ## What It Does
 
 - Audits pages for LLM discoverability and agent readiness
